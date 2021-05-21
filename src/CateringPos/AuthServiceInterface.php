@@ -34,7 +34,6 @@ interface AuthServiceInterface
 	 * 设置token黑名单
 	 * @param $jwt_token
 	 * @param $user_type
-	 * @return bool
 	 */
-	public function setTokenBlock($jwt_token, $user_type): bool;
+	public function setTokenBlock($jwt_token, $user_type);
 }
