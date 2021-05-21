@@ -156,3 +156,27 @@ if (!function_exists('returnJson'))
 		return response()->json(['status'=>$code,'message'=>$msg,'data'=>$data]);
 	}
 }
+
+if (!function_exists('returnFailArray'))
+{
+	function returnFailJson($msg='',$data = [])
+	{
+		return ['status'=>0,'message'=>$msg,'data'=>$data];
+	}
+}
+
+if (!function_exists('returnSuccessArray'))
+{
+	function returnSuccessJson($data=[],$msg='')
+	{
+		return ['status'=>1,'message'=>$msg,'data'=>$data];
+	}
+}
+
+if (!function_exists('returnArray'))
+{
+	function returnArray($code,$msg='',$data = [])
+	{
+		return ['status'=>$code,'message'=>$msg,'data'=>$data];
+	}
+}
