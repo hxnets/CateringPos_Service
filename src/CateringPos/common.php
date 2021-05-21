@@ -133,6 +133,7 @@ if (!function_exists('session')) {
 	}
 }
 
+//返回失败JSON方法
 if (!function_exists('returnFailJson'))
 {
 	function returnFailJson($msg='',$data = []): \Psr\Http\Message\ResponseInterface
@@ -141,6 +142,7 @@ if (!function_exists('returnFailJson'))
 	}
 }
 
+//返回成功JSON方法
 if (!function_exists('returnSuccessJson'))
 {
 	function returnSuccessJson($data=[],$msg=''): \Psr\Http\Message\ResponseInterface
@@ -149,6 +151,7 @@ if (!function_exists('returnSuccessJson'))
 	}
 }
 
+//返回JSON方法
 if (!function_exists('returnJson'))
 {
 	function returnJson($code,$msg='',$data = []): \Psr\Http\Message\ResponseInterface
@@ -157,6 +160,7 @@ if (!function_exists('returnJson'))
 	}
 }
 
+//返回失败数组方法
 if (!function_exists('returnFailArray'))
 {
 	function returnFailArray($msg='',$data = [])
@@ -165,6 +169,7 @@ if (!function_exists('returnFailArray'))
 	}
 }
 
+//返回成功数组方法
 if (!function_exists('returnSuccessArray'))
 {
 	function returnSuccessArray($data=[],$msg='')
@@ -173,10 +178,41 @@ if (!function_exists('returnSuccessArray'))
 	}
 }
 
+//返回数组方法
 if (!function_exists('returnArray'))
 {
 	function returnArray($code,$msg='',$data = [])
 	{
 		return ['status'=>$code,'message'=>$msg,'data'=>$data];
+	}
+}
+
+//判断返回服务返回的是否是成功执行的数据
+if (!function_exists('isSuccessArray'))
+{
+	function isSuccessArray($data)
+	{
+		if(is_array($data))
+		{
+			if(isset($data['status']))
+			{
+				if($data['status']==1)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
