@@ -159,7 +159,7 @@ if (!function_exists('returnJson'))
 
 if (!function_exists('returnFailArray'))
 {
-	function returnFailJson($msg='',$data = [])
+	function returnFailArray($msg='',$data = [])
 	{
 		return ['status'=>0,'message'=>$msg,'data'=>$data];
 	}
@@ -167,7 +167,7 @@ if (!function_exists('returnFailArray'))
 
 if (!function_exists('returnSuccessArray'))
 {
-	function returnSuccessJson($data=[],$msg='')
+	function returnSuccessArray($data=[],$msg='')
 	{
 		return ['status'=>1,'message'=>$msg,'data'=>$data];
 	}
