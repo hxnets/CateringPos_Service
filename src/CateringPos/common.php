@@ -216,3 +216,18 @@ if (!function_exists('isSuccessArray'))
 		}
 	}
 }
+
+//删除数组指定对象
+if (!function_exists('hiddenFields'))
+{
+	function hiddenFields(&$data,$fields = [])
+	{
+		foreach ($fields as $field)
+		{
+			if(isset($data[$field]))
+			{
+				unset($data[$field]);
+			}
+		}
+	}
+}
