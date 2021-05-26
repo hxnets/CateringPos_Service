@@ -231,3 +231,50 @@ if (!function_exists('hiddenFields'))
 		}
 	}
 }
+
+//提取数组值
+if (!function_exists('get_array_filed_values'))
+{
+	function get_array_filed_values($array, $field = 'id', $isStrVal = false)
+	{
+		$ids = [];
+		$list = $array['data'] ?: $array;
+		foreach ($list as $v) {
+			if ($isStrVal) {
+				$ids[] = strval($v[$field] ?: 0);
+			} else {
+				$ids[] = $v[$field] ?: 0;
+			}
+		}
+		return $ids;
+	}
+	
+}
+
+//数组分组
+if (!function_exists('get_array_group'))
+{
+	function get_array_group($array, $key = 'id', $field = '')
+	{
+		$list = [];
+		foreach ($array as $v) {
+			$list[$v[$key]][] = $field ? $v[$field] : $v;
+		}
+		return $list;
+	}
+}
+
+
+//key value 交换
+if (!function_exists('exchange_kv'))
+{
+	function exchange_kv($array, $key = 'id', $field = '')
+	{
+		$list = [];
+		foreach ($array as $k => $v) {
+			$v['key'] = $k;
+			$list[$v[$key]] = $field ? $v[$field] : $v;
+		}
+		return $list;
+	}
+}
