@@ -44,5 +44,5 @@ interface GoodsServiceInterFace
 	
 	public function getGoodsList($map, $paginate = []);
 	
-	public function getCategoryGoods($shop_id)
+	public function getCategoryGoods($shop_id);
 }
